@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    script(src="/javascripts/admin.js")
+    script(src="/javascripts/sockets.js")
+    div.navbar.bg-info.text-light.col-12
+        big#big #{title}
+        button#open_auc.btn.btn-warning(type="Submit" onclick="start_auction()") Начать аукцион
+    div.row.col-12
+        div.col.col-4.mt-2
+            div#users_window.p-2(style="overflow:scroll;font-size:10pt")
+        div.col.col-4.mt-2
+            div#paint_window.p-2(style="overflow:scroll;font-size:8pt")
+        div.col.col-4.mt-2
+            include chat

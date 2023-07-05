@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    script(src="/javascripts/user.js")
+    script(src="/javascripts/sockets.js")
+    div.navbar.bg-info.text-light.col-12
+        big#big #{title}
+    div.row.col-12
+        div.col.col-3.mt-2
+            div#info_window.p-2(style="overflow-y:scroll;overflow-x:hidden;font-size:10pt")
+        div.col.col-3.mt-2
+            div#buy_window(style="overflow-y:scroll;overflow-x:hidden;font-size:10pt")
+                p.card.m-2.p-2 Приобретенные картины:
+        div.col.col-3.mt-2
+            div#art_window(style="overflow-y:scroll;overflow-x:hidden;font-size:10pt")
+                p.card.m-2.p-2 Текущая картина:
+        div.col.col-3.mt-2
+            include chat
