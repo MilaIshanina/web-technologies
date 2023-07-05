@@ -1,0 +1,4 @@
+[{"id":0,"distribution":"нормальный","max":"200000","price":"200","count":"20"},
+  {"id":1,"distribution":"равномерный","max":"200","price":"2000","count":"25"},
+  {"id":2,"distribution":"нормальный","max":"80","price":"150","count":"150"}
+]
