@@ -1,0 +1,19 @@
+[
+  {
+    "id": 0,
+    "name": "Черный квадрат",
+    "author": "Каземир Малевич",
+    "price": 1000,
+    "min": 50,
+    "max": 150,
+    "src": "https://foma.ru/wp-content/uploads/2017/08/CHe--rnyii--_suprematicheskii--_kvadrat._1915._GTG.jpg" },
+  {
+    "id": 1,
+    "name": "Поцелуй",
+    "author": "Густав Климт",
+    "price": 450,
+    "min": 20,
+    "max": 50,
+    "src": "https://applefog.ru/wa-data/public/shop/img/gustav-klimt-potseluy.jpg"
+  }
+]

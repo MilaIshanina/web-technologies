@@ -1,0 +1,112 @@
+extends layout
+
+block content
+    script(src="/scripts/panels.js")
+    div(class="container p-2 bg-info text-light col-12 ")
+        div(class="row col-12")
+            div(class="col col-6 d-flex align-items-center justify-content-start")
+                div(class="h4 m-0 p-0")= title
+            div(class="col col-6 d-flex justify-content-end align-items-center")
+                div(class="nav-item")
+                    a(class="text-light nav-link" href="/main") Главная
+                div(class="nav-item")
+                    a(class="text-light nav-link" href="/users") Участники
+                div(class="nav-item")
+                    a(class="text-light nav-link" href="/settings") Настройки
+
+    div(class="container p-3 col-12")
+        div(class="container p-3 col-12 ")
+            div(class="col col-12")
+                button(class="btn btn-info" onclick="add_panel()")
+                    span Добавить учаcтника
+            div(id="add_panel" class="container col-12 p-3")
+                div(class="container col-12 p-3")
+                    div
+                        div(class="h5") Добавить участника
+                        table(class="table-sm table-borderless col-12")
+                            thead
+                                th(scope="col") Ссылка на аватар
+                                th(scope="col") Ник
+                                th(scope="col") Имя
+                                th(scope="col") Фамилия
+                                th(scope="col") Баланс
+                                th(scope="col") Добавить
+                            tr
+                                form(action="user/add" method="POST")
+                                    td
+                                        input(class="form-control " required name ="avatar")
+                                    td
+                                        input(class="form-control " required name ="nickname")
+                                    td
+                                        input(class="form-control " required name ="name")
+                                    td
+                                        input(class="form-control " required name ="surname")
+                                    td(class="d-flex flex-row align-items-center justify-content-between" width="150")
+                                        input(class="form-control " type="number" required name ="balance")
+                                    td
+                                        button(class="btn btn-info" type="Submit") Добавить
+            div(class="row" id="user_panel")
+                for user in users
+                    div(class="col col-6 p-3")
+                        div(class="container col-12 p-3 d-flex flex-row h-100")
+                            div(class="container col-5 d-flex bg-white align-items-center justify-content-center p-0 m-0")
+                                img(src=user.avatar, width="100%" )
+                            div(class="pl-3")
+                                table(class="table-sm table-borderless col-12")
+                                    tr
+                                        td Никнейм
+                                        td
+                                            big #{user.nickname}
+                                    tr
+                                        td Имя
+                                        td
+                                            big #{user.name}
+                                    tr
+                                        td Фамилия
+                                        td
+                                            big #{user.surname}
+                                    tr
+                                        td Баланс
+                                        td
+                                            big #{user.balance}
+                                    tr
+                                        td
+                                            button(class="btn btn-info" onclick="edit_user_panel(\"" + user.nickname + "\", \"" + user.name + "\", \"" + user.surname + "\", \"" + user.balance + "\", \"" + user.id + "\", \"" + user.avatar + "\")") Изменить
+                                        td
+                                            form(action="user/delete/" + user.id method="POST")
+                                                button(class="btn btn-info") Удалить
+
+
+
+
+
+
+    div( id="edit_panel" style="display:none")
+        dialog(class="container p-3 mt-3  dialog")
+            p(class="h4 mb-4") Изменение участника
+            form(method="POST" id="edit_form")
+                table(class="table table-stripped mb-0")
+                    thead
+                        th(scope="col") Ссылка на аватар
+                        th(scope="col") Ник
+                    tr
+                        td
+                            input(class="form-control " required name ="eavatar")
+                        td
+                            input(class="form-control " required name ="enickname")
+                    tr
+                        th(scope="col") Имя
+                        th(scope="col") Фамилия
+                        th(scope="col") Баланс
+                    tr
+                        td
+                            input(class="form-control " name ="ename")
+                        td
+                            input(class="form-control " name ="esurname")
+                            td
+                                input(class="form-control " type="number" name ="ebalance")
+
+                div(class="d-flex align-items-center")
+                    button(class="d-flex align-items-center btn btn-info p-2 mr-3" type="Submit") Сохранить
+                    button(class="d-flex align-items-center btn btn-info p-2"
+                        onclick="edit_panel_close()" type="button") Отмена
