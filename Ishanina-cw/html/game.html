@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ProgWars</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/login.js"></script>
+</head>
+<body class="bg-dark" onload="load_name()">
+<div class="container col-12">
+    <div class="col col-12">
+        <div class="row col-12 p-2 text-light">
+            <div class="col col-4 f4">
+                ProgWars
+            </div>
+            <div class="col col-8 d-flex align-items-center justify-content-between">
+                <div>
+                    <small>Игрок:</small> <span id="player"></span>
+                </div>
+                <div>
+                    <small>Здоровье:</small> <b class="h4 bounce" id="health"></b>
+                </div>
+                <div>
+                    Облизанов Александр, гр. 8382
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row col-12 opacity-appear text-light">
+        <canvas width="1200" height="700" style="background-color: #1b1e21" id="game"></canvas>
+        <div class="col-auto pl-3">
+            <div class="h5 mt-4">Таблица рекордов</div>
+            <div id="table"></div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/soundManager.js"></script>
+    <script type="text/javascript" src="js/mapManager.js"></script>
+    <script type="text/javascript" src="js/eventsManager.js"></script>
+    <script type="text/javascript" src="js/Objects.js"></script>
+    <script type="text/javascript" src="js/physicManager.js"></script>
+    <script type="text/javascript" src="js/spriteManager.js"></script>
+    <script type="text/javascript" src="js/gameManager.js"></script>
+</div>
+</body>
+</html>
