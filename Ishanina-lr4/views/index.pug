@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  div.navbar.bg-info.text-light
+    big Добро пожаловать на #{title}
+  div.d-flex.flex-column.align-items-center
+    form(action="/in" method="POST")
+      p
+      label Имя пользователя
+      p
+      input.form-control(name = "name"  required)
+      p
+      button.btn.btn-warning(type="submit") Войти

@@ -1,0 +1,8 @@
+div#chat_window(style="overflow-y:scroll;overflow-x:hidden;font-size:10pt")
+    p#current_time.card.m-2.p-2 До конца аукциона:
+    p#local_time.ml-2
+        p
+        div#msg_field.m-2.p-2(style="background:white")
+        input#send_input.form-control.m-2.w-75(placeholder='Введите сумму ставки' type = "number" min = "0" required)
+        p
+        button#send_btn.btn.btn-info.ml-2(onclick="make_bet()") Сделать ставку

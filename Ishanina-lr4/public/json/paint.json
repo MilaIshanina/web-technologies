@@ -1,0 +1,35 @@
+[
+  {
+    "id": 0,
+    "name": "Черный квадрат",
+    "artist": "Каземир Малевич",
+    "price": "150",
+    "min": "10",
+    "max": "20",
+    "pt": "https://foma.ru/wp-content/uploads/2017/08/CHe--rnyii--_suprematicheskii--_kvadrat._1915._GTG.jpg",
+    "buyer": "-",
+    "final_price": "-"
+  },
+  {
+    "id": 1,
+    "name": "Поцелуй",
+    "artist": "Густав Климт",
+    "price": "100",
+    "min": "10",
+    "max": "20",
+    "pt": "https://applefog.ru/wa-data/public/shop/img/gustav-klimt-potseluy.jpg",
+    "buyer": "-",
+    "final_price": "-"
+  },
+  {
+    "id": 2,
+    "name": "9 вал",
+    "artist": "Иван Айвазовский",
+    "price": "100",
+    "min": "10",
+    "max": "20",
+    "pt": "https://artsavchenko.ru/wp-content/uploads/2019/03/f03d121af1a2b9b109c95ef4c62743e1.jpg",
+    "buyer": "-",
+    "final_price": "-"
+  }
+]
