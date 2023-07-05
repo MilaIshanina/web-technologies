@@ -1,0 +1,71 @@
+extends layout
+
+block content
+    script(src = "/javascripts/ajax.js")
+
+    if if_msg === true
+        div(id="id01" class="modal" style="display: block")
+            div(class="modal-dialog")
+                div(class="modal-content p-3")
+                    div(class="row col-12")
+                        p(class="col-11")= msg
+                        span(onclick="document.getElementById('id01').style.display='none'"
+                            class="btn btn-danger col-1") &times;
+
+
+    div(class="navbar text-light bg-info")
+        h1= title
+
+    div(class="container p-3 bg-light col-auto")
+        div(class="row")
+            div(class="col col-auto")
+                h5 Фильтр:
+            div(class="col col-auto")
+                button(class="btn btn-info" onclick='all_books(this)' id="all_books") Все книги
+            div(class="col col-auto")
+                button(class="btn btn-info" onclick='in_lib(this)' id="in_lib") Книги в наличии
+            div(class="col col-auto")
+                button(class="btn btn-info" onclick='date_return(this)' id="date_return") Срок сдачи
+
+    div(class="container col-12")
+        table(class="table")
+            tr
+                th id
+                th Название
+                th Автор
+                th Год выпуска
+                th Наличие
+                th Дата возврата
+                th Действие
+                th Перейти
+            for item in books
+                tr( id = item.id)
+                    td #{item.id}
+                    td #{item.name}
+                    td #{item.author}
+                    td #{item.date}
+                    td #{item.in_library}
+                    td #{item.date_return}
+                    form(action="book/" + item.id method ="POST")
+                        th
+                            button(class ="btn btn-danger") &times
+                    th
+                        a(href = "book/"+item.id)
+                            button(class ="btn btn-info") &#8594
+                        // - item.id = item.id +1
+                    - last = item.id
+            tr(id = last+1 class="table-small table")
+                form(action="new" method="POST")
+                    th
+                        input(required name ="id" class="form-control")
+                    th
+                        input(required name="name" class="form-control")
+                    th
+                        input(required name="author" class="form-control")
+                    th
+                        input(required type="date" name="date" class="form-control")
+                    th
+                    th
+                    th
+                        button(class="btn btn-success") +
+    p

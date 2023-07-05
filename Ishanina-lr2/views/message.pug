@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    div(class="w3-container w3-light-green")
+        h1= title
+    div(class="w3-container w3-center")
+        form(action="/library" method="GET")
+            p
+            p
+            label #{msg}
+            p
+            div(class="w3-container w3-center")
+                button(class="w3-button w3-lime" type="Submit") Вернуться

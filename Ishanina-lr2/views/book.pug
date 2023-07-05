@@ -1,0 +1,91 @@
+extends layout
+
+block content
+    script(src="/javascripts/ajax.js")
+    div(class="navbar bg-info text-light col-auto")
+        h1= title
+
+    div(class="container col-12")
+        table(class="table ")
+            tr
+                th id
+                th Название
+                th Автор
+                th Год выпуска
+                th Наличие
+                th Читатель
+                th Дата возврата
+            tr
+                td #{ID}
+                td #{name}
+                td #{author}
+                td #{date}
+                td #{in_library}
+                td #{person}
+                td #{date_return}
+                -var book_id = ID
+
+    div(class="row p-3 col-12 bg-light")
+        div(class="col col-auto")
+            h5 Действия:
+        div(class="col col-auto")
+            if in_library === "нет"
+                button(class="btn btn-info " disabled) Взять книгу
+            else
+                button(class ="btn btn-info"
+                    onclick="document.getElementById('id01').style.display='block'") Взять книгу
+        div(class="col col-auto")
+            if in_library === "нет"
+                form(action="back/" + book_id method="POST")
+                    button(class="btn btn-info" type="submit") Вернуть книгу
+            else
+                button(class="btn btn-info" type="submit" disabled) Вернуть книгу
+        div(class="col col-auto")
+            button(class ="btn btn-info"
+                onclick="document.getElementById('id02').style.display='block'") Редактировать
+
+
+    div(id="id01" class="container" style="display: none;")
+        header(class="container col-12 bg-light p-2")
+            div(class="row col-12")
+                div(class="col col-11")
+                    h2 Взять книгу
+                div(class="col col-1")
+                    span(class="btn btn-info"
+                        onclick="document.getElementById('id01').style.display='none'") &times;
+
+            div(class="container")
+                form(action="read/" + book_id method="POST")
+                    p ФИО читателя
+                    input(required class="form-control" name="name")
+                    p Дата возврата
+                    input(required class="form-control" type="date" name="date")
+                    p
+                    button(class="btn btn-info" type="submit") Взять
+
+
+    div(id="id02" class="container" style="display: none;")
+        header(class="container col-12 bg-light p-2")
+            div(class="row col-12")
+                div(class="col col-11")
+                    h2 Редактировать
+                div(class="col col-1")
+                    span(class="btn btn-info"
+                    onclick="document.getElementById('id02').style.display='none'") &times;
+
+            form(action="edit/" + book_id method="POST")
+                table(class="table")
+                    tr
+                        th Название
+                        th Автор
+                        th Дата издания
+                    tr
+                        td
+                            input(name="name" class="form-control")
+                        td
+                            input(name="author" class="form-control")
+                        td
+                            input(name="date" type="date" class="form-control")
+                button(class="btn btn-info" type="submit") Внеcти изменения
+    a(href="/library")
+        button(class="btn btn-info m-3" type="submit") Назад

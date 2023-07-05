@@ -1,0 +1,16 @@
+extends layout
+
+
+block content
+    div(class="container col-12 bg-info p-3 text-light d-flex flex-column align-items-center")
+        h1(class="center ")= title
+        //div(class="col bg-info ")
+        p Добро пожаловать!
+        form(action="/library" method="GET")
+            div(class="col bg-info ")
+                button(class="btn btn-warning" type="Submit") Войти
+
+    //div(class="container col-12 bg-info p-3 text-light d-flex flex-column align-items-center")
+        h4 Библиотека
+        p Добро пожаловать
+        buttin(class="btn btn-primary") Войти
